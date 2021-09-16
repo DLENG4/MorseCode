@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+
+namespace MorseCode
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DecodeMorse(".... . -.-- .--- ..- -.. ."));
+            Console.ReadKey();
+        }
+        
+        private static Dictionary<string, string> morseCodeDictonary = new Dictionary<string, string>
+            {
+                { ".-", "A" },
+                { "-...", "B"},
+                { "-.-.", "C"},
+                { "-..", "D"},
+                { ".", "E"},
+                { "..-.", "F"},
+                { "--.", "G"},
+                { "....", "H"},
+                { "..", "I"},
+                { ".---", "J"},
+                { "-.-", "K"},
+                { ".-..", "L"},
+                { "--", "M"},
+                { "-.", "N"},
+                { "---", "O"},
+                { ".--.", "P"},
+                { "--.-", "Q"},
+                { ".-.", "R"},
+                { "...", "S"},
+                { "-", "T"},
+                { "..-", "U"},
+                { "...-", "V"},
+                { ".--", "W"},
+                { "-..-", "X"},
+                { "-.--", "Y"},
+                { "--..", "Z"}
+            
+            };
+        private static string DecodeMorse(string morse)
+        {
+            string decodeString = "";
+            string[] arr = morse.Split(' ');
+            foreach(string item in arr)
+            {
+                decodeString += morseCodeDictonary[item];
+            }
+            return decodeString;
+        }
+
+
+
+        }
+}
